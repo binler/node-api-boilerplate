@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const ModelBase = require('@models/Domain/ModelBase');
 const DbQuery = require('./schema');
@@ -6,7 +6,7 @@ const DbQuery = require('./schema');
 class User extends ModelBase {
 
   /**
-   * @param {{id: String, username: String, email: String, 
+   * @param {{id: String, username: String, email: String,
           password: String, tokenHash: String, passwordResetToken: String, passwordResetSentAt: Date,
           created: Date, updated: Date, lastLogin: Date
       }}

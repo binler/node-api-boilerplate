@@ -1,11 +1,11 @@
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 class ModelBase {
   constructor() {
     this.rules = Joi.object();
     this.excludedProps = [];
   }
-  
+
   validate() {
     return Joi.validate(this.toJSON(), this.rules);
   }

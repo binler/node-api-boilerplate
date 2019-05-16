@@ -1,11 +1,11 @@
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcryptjs');
 const jwt = require('jwt-simple');
 const uuid = require('uuid');
 const config = require('@config');
 
 class SecurityHelper {
   /**
-   * @param {String} id 
+   * @param {String} id
    * @param {String} hash
    * @returns {String}
    */
@@ -21,7 +21,7 @@ class SecurityHelper {
   }
 
   /**
-   * @param {String} token 
+   * @param {String} token
    * @returns {{sub: String, iat: Number, hash: String}}
    */
   static decryptJwtToken(token) {
@@ -34,9 +34,9 @@ class SecurityHelper {
   }
 
   /**
-   * @param {String} password 
-   * @param {String} hash 
-   * @returns {Promise<Boolean>} 
+   * @param {String} password
+   * @param {String} hash
+   * @returns {Promise<Boolean>}
    */
   static comparePassword(password, hash) {
     return new Promise((resolve, reject) => {
@@ -49,7 +49,7 @@ class SecurityHelper {
 
   /**
    * @param {String} password
-   * @returns {Promise<{password: String, tokenHash: String}>} 
+   * @returns {Promise<{password: String, tokenHash: String}>}
    */
   static hashPassword(password) {
     const saltRounds = 10;
